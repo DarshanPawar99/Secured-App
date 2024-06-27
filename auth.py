@@ -35,6 +35,7 @@ def login():
 def main_app():
     st.title("Main App")
     st.write(f"Hello, {st.session_state['username']}!")
+    st.info('This is a purely informational message', icon="ℹ️")
 
 # Main function to control the app flow
 def main():
