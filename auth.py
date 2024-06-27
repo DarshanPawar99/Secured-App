@@ -1,19 +1,18 @@
 import streamlit as st
-import toml
 import subprocess
 
-# Function to load credentials from secrets.toml
-def load_credentials(file_path):
-    credentials = toml.load(file_path)
+# Function to load credentials from Streamlit secrets
+def load_credentials():
+    credentials = st.secrets["credentials"]
     return credentials
 
 def main():
     st.title("Login")
 
-    # Load credentials from secrets.toml
-    credentials = load_credentials('secrets.toml')
-    usernames = credentials['credentials']['usernames']
-    passwords = credentials['credentials']['passwords']
+    # Load credentials from Streamlit secrets
+    credentials = load_credentials()
+    usernames = credentials['usernames']
+    passwords = credentials['passwords']
 
     # Input fields for username and password
     username = st.text_input('Username')
